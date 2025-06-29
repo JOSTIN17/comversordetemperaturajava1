@@ -1,0 +1,37 @@
+/*
+ * Programa: Conversor de Temperatura
+ * Descripción: Este programa convierte una temperatura ingresada por el usuario
+ * de grados Celsius a grados Fahrenheit y verifica que la entrada sea válida.
+ * Utiliza diferentes tipos de datos y buenas prácticas de identificación.
+ */
+
+import java.util.Scanner;
+
+public class ConversorTemperatura {
+
+    public static void main(String[] args) {
+        Scanner entrada_usuario = new Scanner(System.in);
+
+        float temperatura_celsius = 0.0f;
+        float temperatura_fahrenheit;
+        String mensaje_resultado;
+        boolean entrada_valida = true;
+
+        System.out.print("Ingrese la temperatura en grados Celsius: ");
+
+        try {
+            temperatura_celsius = entrada_usuario.nextFloat();
+        } catch (Exception e) {
+            System.out.println("Error: Debe ingresar un número válido.");
+            entrada_valida = false;
+        }
+
+        if (entrada_valida) {
+            temperatura_fahrenheit = (temperatura_celsius * 9 / 5) + 32;
+            mensaje_resultado = "La temperatura en Fahrenheit es: " + temperatura_fahrenheit + "°F";
+            System.out.println(mensaje_resultado);
+        }
+
+        entrada_usuario.close();
+    }
+}
